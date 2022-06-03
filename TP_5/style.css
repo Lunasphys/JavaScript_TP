@@ -4,10 +4,16 @@ body {
     background-repeat: no-repeat;
 }
 
-.machine {
-    margin-top: 20%;
+.container {
     text-align: center;
 }
+
+.machine {
+    margin-top: 20%;
+    justify-content: center;
+    display : flex;
+}
+
 
 img {
     width : 15vh;
