@@ -5,9 +5,10 @@ body {
 }
 
 .machine {
+    margin-top: 20%;
     text-align: center;
 }
 
 img {
-    width : 51vh;
+    width : 15vh;
 }
