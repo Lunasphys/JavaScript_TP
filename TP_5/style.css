@@ -1,0 +1,13 @@
+body {
+    background-image: url("img/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.machine {
+    text-align: center;
+}
+
+img {
+    width : 51vh;
+}
