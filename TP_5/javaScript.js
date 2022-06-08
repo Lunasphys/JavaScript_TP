@@ -15,6 +15,9 @@ function Init() {
     pieces.innerHTML = bourse;
 }
 
+/* Create an array of image */
+
+
 const items = [
     '<img src="img/items/casino.png" alt="casino">',
     '<img src="img/items/cherry.png" alt="cherry">',
@@ -47,32 +50,31 @@ window.addEventListener('click', function (shuffle) {
 /* Shuffle the array of images */
 
 function shuffle([...arr]) {
-    let m = arr.length;
-    while (m) {
-        let i = Math.floor(Math.random() * m--);
-        [arr[m], arr[i]] = [arr[i], arr[m]]
+    let x = arr.length;
+    while (x) {
+        let i = Math.floor(Math.random() * x--);
+        [arr[x], arr[i]] = [arr[i], arr[x]]
     };
     return arr;
 }
 
 
 
-/* Create an array of image */
 
 
-/* It's listening for a click on the buttons and calling the SpinFunc function with the value of the button as a parameter. */
+/* Wait for the click on the bet button, then proceeds to shuffle the arrayy of image et replace it. Can stop the game if the player doesn't have enough money. Displayy the user info about his purse/wins bet etccc*/
+
 function spinningFunc(i) {
     console.log("Bourse actuelle : ", bourse);
     console.log("Mise : ", i);
-    piecesDiv.innerHTML = "Jetons misés : " + i;
-    piecesDiv.classList.add('wobble');
+    piecesDiv.classList.add('log');
     if (bourse - i < 0) {
         console.log("Vous n'avez plus de jetons");
         for (let i = 0; i < emplacements.length; i++) {
             setTimeout(function () {
-                emplacements[i].innerHTML = "<div class='boxes'>" + "X" + "</div>";
+                emplacements[i].innerHTML = "<div class='boxes'>"+ '<img src="img/stop_sign.png">' +"</div>";
                 let box = emplacements[i].querySelector('.boxes');
-                box.classList.add('heartBeat');
+                box.classList.add('stop');
             }, i * 300);
         }
         return
@@ -85,7 +87,7 @@ function spinningFunc(i) {
         setTimeout(function () {
             emplacements[i].innerHTML = "<div class='boxes'>" + shuffledItems[i] + "</div>";
             let box = emplacements[i].querySelector('.boxes');
-            box.classList.add('heartBeat');
+            box.classList.add('still');
         }, i * 300);
     }
     setTimeout(function () {
@@ -94,7 +96,8 @@ function spinningFunc(i) {
     }, emplacements.length * 300);
 }
 
-/* It's calculating the gain of the round. */
+/* Function that calcul how much you have wins */
+
 function winningGain(i) {
     result = [];
     let gain = 0;
@@ -110,20 +113,20 @@ function winningGain(i) {
     bourse += gain;
     console.log("Gain total : ", cashPrice);
     cashPriceDiv.innerHTML = "Gains : " + cashPrice;
-    cashPriceDiv.classList.add('wobble');
+    cashPriceDiv.classList.add('log');
     console.log("Gain de ce round : ", gain);
     gainRoundDiv.innerHTML = "Gagné ce tour : " + gain;
-    gainRoundDiv.classList.add('wobble');
+    gainRoundDiv.classList.add('log');
     pieces.innerHTML = bourse;
     isPlaying= false;
 }
 
 Init();
 
-// COINS MULTIPLIER FUNCTIONS //
 
-/* It's checking if there is a 7️ in the result array. If there is, it's counting how many 7️ there is. If there is 3, it's
-adding the value of the bet to the total gain and the gain of the round. */
+/* Check if there's a casino.png is the emplacement div, and count them. Then proceed to calculate the gain compared with the bet made */
+
+
 function casinoCalculs(i, gain) {
     if (result.includes("<img src=\"img/items/casino.png\" alt=\"casino\">")) {
         let casinoCount = result.filter(x => x === "<img src=\"img/items/casino.png\" alt=\"casino\">").length;
@@ -136,8 +139,7 @@ function casinoCalculs(i, gain) {
     return gain;
 }
 
-/* It's checking if there is a 💎 in the result array. If there is, it's counting how many 💎 there is. If there is 1, it's
-adding the value of the bet to the total gain and the gain of the round. */
+/* Check if there's a diamond.png is the emplacement div, and count them. Then proceed to calculate the gain compared with the bet made */
 
 function diamondCalculs(i, gain) {
     if (result.includes('<img src="img/items/diamond.png" alt="diamond">')) {
@@ -157,8 +159,8 @@ function diamondCalculs(i, gain) {
     return gain;
 }
 
-/* It's checking if there is a 🍋 in the result array. If there is, it's counting how many 🍋 there is. If there is 3, it's
-adding the value of the bet to the total gain and the gain of the round. */
+/* Check if there's a lemon.png is the emplacement div, and count them. Then proceed to calculate the gain compared with the bet made */
+
 function lemonCalculs(i, gain) {
     if (result.includes('<img src="img/items/lemon.png" alt="lemon">')) {
         let lemonCount = result.filter(x => x === '<img src="img/items/lemon.png" alt="lemon">').length;
@@ -169,9 +171,9 @@ function lemonCalculs(i, gain) {
         }
     }
     return gain;
-    /* It's checking if there is a 🍒 in the result array. If there is, it's counting how many 🍒 there is. If there is 3, it's
-    adding the value of the bet to the total gain and the gain of the round. */
+    
 }
+
 
 function cherryCalculs(i, gain) {
     if (result.includes('<img src="img/items/cherry.png" alt="cherry">')) {
