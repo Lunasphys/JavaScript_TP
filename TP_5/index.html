@@ -6,22 +6,47 @@
     <title>Title</title>
 </head>
 <body>
-<div class="container">
-    <h1>Rich People Paradise</h1>
-    <div class="machine">
-        <div class="slot" id="slot1">
-            <img src="img/items/cherry.png" alt="">
+    <div class="container">
+        <h1><img class="title" src="img/logo.png" alt="title"></h1>
+        <div class="machine">
+            <div class="emplacements">
+                    <div class="emplacement">
+                        <img src="img/items/cherry.png" alt="">
+                    </div>
+                    <div class="emplacement"><img src="img/items/lemon.png" alt="">
+                    </div>
+                    <div class="emplacement"><img src="img/items/casino.png" alt="">
+                    </div>
+            </div>
         </div>
-        <div class="slot" id="slot2">
-            <img src="img/items/lemon.png" alt="">
-        </div>
-        <div class="slot" id="slot3">
-            <img src="img/items/casino.png" alt="">
+        <div class="infoGame">
+            <div class="content">
+                Jetons disponibles : <div class="pieces"></div>
+            </div>
+            <div class="combinaison">
+                <span><img src="img/items/lemon.png" alt="lemon"><img src="img/items/lemon.png" alt="lemon"><img src="img/items/lemon.png" alt="lemon"> : x1.25</span>
+                <span><img src="img/items/cherry.png" alt="cherry"><img src="img/items/cherry.png" alt="cherry"><img src="img/items/cherry.png" alt="cherry"> : x1.5</span>
+                <span><img src="img/items/diamond.png" alt="diamond"> : x0.5</span>
+                <span><img src="img/items/diamond.png" alt="diamond"><img src="img/items/diamond.png" alt="diamond"> : x1</span>
+                <span ><img src="img/items/diamond.png" alt="diamond"><img src="img/items/diamond.png" alt="diamond"><img src="img/items/diamond.png" alt="diamond">: x2.5</span>
+                <span><img src="img/items/casino.png" alt="casino"><img src="img/items/casino.png" alt="casino"><img src="img/items/casino.png" alt="casino">: x10</span>
+            </div>
+            <div class="stats">
+                <div class="cashPrice"></div>
+                <div class="gainRound"></div>
+                <div class="coinsBet"></div>
+            </div>
         </div>
 
+
+
+        <div class="buttons">
+            <button class="spinner iso " id="spinner10">10</button>
+            <button class="spinner iso red" id="spinner50">50</button>
+            <button class="spinner iso blue" id="spinner200">200</button>
+        </div>
+        <p class="info"></p>
+        <script src="javaScript.js"></script>
     </div>
-    <button class="spin">Play</button>
-    <script src="javaScript.js"></script>
-</div>
 </body>
 </html>

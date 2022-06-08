@@ -1,7 +1,16 @@
+
+@font-face {
+    font-family: 'staal';
+    src: url('/font/Staatliches-Regular.ttf')
+
+}
+
 body {
     background-image: url("img/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    color: white;
+    font-family: 'staal';
 }
 
 .container {
@@ -9,12 +18,38 @@ body {
 }
 
 .machine {
-    margin-top: 20%;
     justify-content: center;
-    display : flex;
 }
 
+.title {
+    width: 70vh;
+}
 
 img {
     width : 15vh;
 }
+
+.infoGame {
+    position: fixed;
+    right: 6%;
+    text-align: left;
+}
+
+
+
+.combinaison {
+    display: grid;
+}
+.content {
+    display : flex;
+}
+
+span img {
+    width: 2vh;
+}
+
+.emplacements {
+    display: flex;
+    justify-content: center;
+}
+
